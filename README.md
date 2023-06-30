@@ -18,14 +18,14 @@
 - Foundation
 - UIKit
 - CoreLocation
-- Mapkit
+- MapKit
 
 ## What I've Learned:
-- How to use Mapkit
+- How to use MapKit
 - How to use UserDefaults
-- How to create a timer programatically
+- How to create a timer programmatically
 - How to round integers to required decimal
 - How to create color sets to be used with dark mode and light mode
-- How to save and share a screenshot of your application 
+- How to save and share a screenshot of the app 
 
 ---
