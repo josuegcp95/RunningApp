@@ -1,4 +1,4 @@
-# RunningApp 
+# RunningApp  
 
 ## Screenshots
 ![RunningApp(1)](https://github.com/josuegcp95/RunningApp/assets/82785695/75420e23-f501-49e0-aa85-177164d637ef)
