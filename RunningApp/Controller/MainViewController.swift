@@ -52,7 +52,7 @@ class MainViewController: UIViewController {
     //MARK: - Start Button
     @IBAction func startButtonTapped(_ sender: UIButton) {
         if mapView.annotations.count == 1 {
-            guard let coordinates = LocationService.shared.currentLocation else {return}
+            guard let coordinates = LocationService.shared.currentLocation else { return }
             setupStartingAnnotation(coordinate: coordinates)
             startButton.isEnabled = false
             finishButton.isEnabled = true
@@ -63,7 +63,7 @@ class MainViewController: UIViewController {
     //MARK: - Finish Button
     @IBAction func finishButtonTapped(_ sender: UIButton) {
         if mapView.annotations.count == 2 {
-            guard let coordinates = LocationService.shared.currentLocation else {return}
+            guard let coordinates = LocationService.shared.currentLocation else { return }
             setupEndingAnnotation(coordinate: coordinates)
             drawRouteCoordinates(routeData: routeCoordinates)
             finishButton.isEnabled = false
@@ -74,7 +74,7 @@ class MainViewController: UIViewController {
     }
     //MARK: - Reset Button
     @IBAction func resetButtonTapped(_ sender: UIButton) {
-        guard let coordinates = LocationService.shared.currentLocation else {return}
+        guard let coordinates = LocationService.shared.currentLocation else { return }
         startButton.isEnabled = true
         resetButton.isEnabled = false
         shareButton.isEnabled = false
@@ -158,7 +158,7 @@ extension MainViewController: MKMapViewDelegate {
             let view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: id)
             view.canShowCallout = true
             view.animatesDrop = true
-            view.pinTintColor = .white
+            view.pinTintColor = .systemOrange
             view.calloutOffset = CGPoint(x: -10, y: -15)
             return view
         }
@@ -194,7 +194,9 @@ extension MainViewController {
         }
         DispatchQueue.main.async { [unowned self] in
             self.routeOverlay = MKPolyline(coordinates: coordinates, count: coordinates.count)
+            
             self.mapView.addOverlay(self.routeOverlay!, level: .aboveRoads)
+            
             self.mapView.setVisibleMapRect(
                 self.routeOverlay!.boundingMapRect,
                 edgePadding: UIEdgeInsets(top: 200, left: 50, bottom: 50, right: 50),
@@ -204,12 +206,10 @@ extension MainViewController {
                 calculateRouteDistance(startingCoordinates:  coordinates.first!, endingCoordinates: coordinates.last!)
             }
         }
-        
     }
     
     // Calculate Distance
     func calculateRouteDistance(startingCoordinates: CLLocationCoordinate2D, endingCoordinates: CLLocationCoordinate2D) {
-        
         let request = MKDirections.Request()
         request.source = MKMapItem(placemark: MKPlacemark(coordinate: startingCoordinates))
         request.destination = MKMapItem(placemark: MKPlacemark(coordinate: endingCoordinates))
@@ -218,7 +218,7 @@ extension MainViewController {
         let directions = MKDirections(request: request)
         
         directions.calculate { [unowned self] (response, error) in
-            guard let route =  response?.routes.first else {return}
+            guard let route =  response?.routes.first else { return }
             
             let distance = route.distance
             let distanceMeters = Measurement(value: distance, unit: UnitLength.meters)
@@ -242,12 +242,12 @@ extension MainViewController {
     
     // Render Overlays
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        let directionsrenderer = MKPolylineRenderer(polyline: overlay  as! MKPolyline)
-        directionsrenderer.lineWidth = 5
-        directionsrenderer.strokeColor = .systemBlue
-        directionsrenderer.alpha = 0.75
+        let directionsRenderer = MKPolylineRenderer(polyline: overlay  as! MKPolyline)
+        directionsRenderer.lineWidth = 5
+        directionsRenderer.strokeColor = .systemBlue
+        directionsRenderer.alpha = 0.75
         
-        return directionsrenderer
+        return directionsRenderer
     }
     
     // Remove Annotations and Overlays
