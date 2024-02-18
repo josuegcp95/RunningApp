@@ -1,10 +1,10 @@
 # RunningApp 
 
 ## Screenshots
-![RunningApp(1)](https://user-images.githubusercontent.com/82785695/173255309-8c4eab99-4370-4317-906b-a4c7fef34652.png)
-![RunningApp(2)](https://user-images.githubusercontent.com/82785695/173255310-05782422-bee1-4b37-b23d-f16847da2121.png)
-![RunningApp(3)](https://user-images.githubusercontent.com/82785695/173255314-c5ef2aec-d287-4d42-aeab-c0219c151bf0.png)
-![RunningApp(4)](https://user-images.githubusercontent.com/82785695/173255315-a526040d-d4f1-4d5e-8ca3-547cb05d35ee.png)
+![RunningApp(1)](https://github.com/josuegcp95/RunningApp/assets/82785695/75420e23-f501-49e0-aa85-177164d637ef)
+![RunningApp(2)](https://github.com/josuegcp95/RunningApp/assets/82785695/941bb021-49af-4e72-85fa-e44d241eba8c)
+![RunningApp(4)](https://github.com/josuegcp95/RunningApp/assets/82785695/ac61134b-1030-4e74-8942-585eb7772e10)
+![RunningApp(5)](https://github.com/josuegcp95/RunningApp/assets/82785695/1d422b90-8eba-4aad-a3bd-1c23ed46ad96)
 
 ## Description
 - This is a running iOS application 
